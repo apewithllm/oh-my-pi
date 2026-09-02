@@ -62,6 +62,7 @@ export type KnownProvider =
 	| "openai-codex"
 	| "opencode-go"
 	| "opencode-zen"
+	| "openllm"
 	| "openrouter"
 	| "qianfan"
 	| "qwen-portal"

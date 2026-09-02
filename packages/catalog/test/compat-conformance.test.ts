@@ -38,6 +38,10 @@ const RUNTIME_ONLY_PROVIDERS = new Set([
 	// User-configured LiteLLM proxy (models.yml provider or litellm auth flow;
 	// PROXY_OPENAI_COMPAT_PROVIDERS) that forwards upstream chat templates.
 	"litellm",
+	// Local OpenLLM gateway daemon; the roster is the user's own chains and
+	// providers, resolved live by openllmModelManagerOptions in
+	// provider-models/openai-compat.ts (PROXY_OPENAI_COMPAT_PROVIDERS).
+	"openllm",
 	// User-configured models.yml provider pointing at
 	// https://inference-api.nousresearch.com/v1 (NousResearch inference API).
 	"nous",

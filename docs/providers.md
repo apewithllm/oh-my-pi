@@ -197,6 +197,7 @@ The variables below supply credentials after runtime/config overrides and stored
 | `lm-studio`                      | `LM_STUDIO_API_KEY` (optional; keyless by default)                                  |
 | `llama.cpp`                      | `LLAMA_CPP_API_KEY` (only when the server requires auth)                            |
 | `vllm`                           | `VLLM_API_KEY` (optional for an unauthenticated local server)                       |
+| `openllm`                        | `OPENLLM_API_KEY` (optional for the local daemon; base URL from `OPENLLM_BASE_URL`) |
 | `yolo-auto`                      | `YOLO_AUTO_API_KEY`                                                                 |
 | `charm-hyper`                    | `CHARM_HYPER_API_KEY`, then `HYPER_API_KEY`                                         |
 | `singularityapi-dev`             | `SINGULARITYAPI_DEV_API_KEY`                                                        |

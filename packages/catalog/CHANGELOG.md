@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- Added OpenLLM (`openllm`) as a provider for the OpenLLM local gateway daemon (`http://127.0.0.1:8787/v1`, `OPENLLM_BASE_URL` override): `/login openllm` with an optional key (an empty key stores the `openllm-local` placeholder), live `/v1/models` discovery with `ultra`/`plus`/`lite` static fallbacks, and proxy compat so the loopback daemon is not treated as a llama.cpp-style local backend
+
 ## [18.18.2] - 2026-11-08
 
 ### Fixed

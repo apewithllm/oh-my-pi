@@ -16,6 +16,7 @@ test("lightweight cache resolver matches scoped descriptor inputs", () => {
 		{ providerId: "muse-code", baseUrl: "https://api.meta.example/subscriber/v1" },
 		{ providerId: "opencode-go", baseUrl: "https://opencode.example/go" },
 		{ providerId: "opencode-zen", baseUrl: "https://opencode.example/zen/v1/" },
+		{ providerId: "openllm", baseUrl: "http://openllm.example:8787/v1" },
 		{ providerId: "vllm", baseUrl: "http://vllm.example:8000/v1" },
 	] as const;
 	for (const { providerId, baseUrl } of cases) {
@@ -115,4 +116,12 @@ test("Codex cache scope follows a gateway baseUrl but keeps the official namespa
 		resolveModelCacheProviderId("openai-codex", { baseUrl: "https://codex-proxy.example/backend-api/" }),
 	);
 	expect(gateway.cacheProviderId).not.toBe(official);
+});
+
+test("openllm cache scope is keyed by base URL", () => {
+	const local = resolveModelCacheProviderId("openllm", { baseUrl: "http://127.0.0.1:8787/v1" });
+	expect(local).not.toBe(resolveModelCacheProviderId("openllm", { baseUrl: "http://gateway.example:8787/v1" }));
+	if (Bun.env.OPENLLM_BASE_URL === undefined) {
+		expect(resolveModelCacheProviderId("openllm")).toBe(local);
+	}
 });

@@ -1,0 +1,10 @@
+auth "openllm" {
+	name "OpenLLM (Local BYOK/subscription gateway)"
+	env "OPENLLM_API_KEY"
+	login "api-key" {
+		auth-url "https://docs.openllm.sh"
+		instructions "Install OpenLLM with `curl -fsSL https://www.openllm.sh/install | bash` (the installer starts the local daemon), then leave the key empty: the daemon carries its own upstream credentials. Default base URL: http://127.0.0.1:8787/v1; set OPENLLM_BASE_URL to customize."
+		prompt "Paste your OpenLLM API key (optional for the local daemon)" placeholder="openllm-local"
+		empty-fallback "openllm-local"
+	}
+}
